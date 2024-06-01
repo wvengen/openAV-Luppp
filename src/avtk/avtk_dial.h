@@ -76,6 +76,7 @@ public:
 
 			lineWidth = 1.4 + radius / 12.f;
 
+			Fl::cairo_make_current(this->top_window());
 			cairo_t *cr = Fl::cairo_cc();
 
 			cairo_save( cr );

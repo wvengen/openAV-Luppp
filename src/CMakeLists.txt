@@ -6,9 +6,9 @@ message( STATUS "Architecture:  ${ARCHITECTURE}" )
 # Find depend libraries
 find_package(PkgConfig)
 
-pkg_check_modules(NTK ntk REQUIRED)
-include_directories( ${NTK_INCLUDE_DIRS}  )
-link_directories   ( ${NTK_LIBRARY_DIRS}  )
+pkg_check_modules(FLTK fltk REQUIRED)
+include_directories( ${FLTK_INCLUDE_DIRS}  )
+link_directories   ( ${FLTK_LIBRARY_DIRS}  )
 
 pkg_check_modules(CAIRO cairo REQUIRED)
 include_directories( ${CAIRO_INCLUDE_DIRS}  )
@@ -80,7 +80,7 @@ set_target_properties(luppp PROPERTIES
 # Linking
 target_link_libraries( luppp ${JACK_LIBRARIES}       )
 target_link_libraries( luppp ${LIBLO_LIBRARIES}      )
-target_link_libraries( luppp ${NTK_LIBRARIES}        )
+target_link_libraries( luppp ${FLTK_LIBRARIES}        )
 target_link_libraries( luppp ${CAIRO_LIBRARIES}      )
 target_link_libraries( luppp ${SNDFILE_LIBRARIES}    )
 target_link_libraries( luppp ${SAMPLERATE_LIBRARIES} )

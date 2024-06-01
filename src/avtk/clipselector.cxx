@@ -107,6 +107,7 @@ void ClipSelector::draw()
 			highlight = false;
 		}
 
+		Fl::cairo_make_current(this->top_window());
 		cairo_t *cr = Fl::cairo_cc();
 
 		cairo_save( cr );

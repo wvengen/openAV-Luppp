@@ -20,7 +20,7 @@
 #ifndef AVTK_BUTTON_H
 #define AVTK_BUTTON_H
 
-#include <ntk/FL/Fl_Button.H>
+#include <FL/Fl_Button.H>
 
 namespace Avtk
 {
@@ -89,6 +89,7 @@ public:
 	void draw()
 	{
 		if (damage() & FL_DAMAGE_ALL) {
+			Fl::cairo_make_current(this->top_window());
 			cairo_t *cr = Fl::cairo_cc();
 
 			cairo_save( cr );

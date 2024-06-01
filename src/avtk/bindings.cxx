@@ -45,6 +45,7 @@ Bindings::Bindings( int _x, int _y, int _w, int _h, const char *_label ) :
 void Bindings::draw()
 {
 	if (damage() & FL_DAMAGE_ALL) {
+		Fl::cairo_make_current(this->top_window());
 		cairo_t *cr = Fl::cairo_cc();
 		cairo_save( cr );
 

@@ -23,7 +23,6 @@ subdir('src')
 
 
 dep_names = [
-  'ntk',
   'cairo',
   'liblo',
   'jack',
@@ -36,6 +35,12 @@ deps = []
 foreach dep : dep_names
   deps += dependency(dep)
 endforeach
+
+deps += declare_dependency(
+  compile_args: run_command('fltk-config', '--use-cairo', '--cxxflags', check: true).stdout().strip().split(' ') + ['-DFLTK_HAVE_CAIRO'],
+  link_args: run_command('fltk-config', '--use-cairo', '--ldflags', check: true).stdout().strip().split(' '),
+  version: run_command('fltk-config', '--use-cairo', '--version', check: true).stdout().strip(),
+)
 
 # compile the main project
 executable('luppp', luppp_src + [version_hxx],

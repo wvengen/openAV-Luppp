@@ -90,6 +90,7 @@ public:
 
 		if (damage() & FL_DAMAGE_ALL &&
 		    previousAngle != newAngle ) {
+			Fl::cairo_make_current(this->top_window());
 			cairo_t *cr = Fl::cairo_cc();
 
 			cairo_save( cr );
